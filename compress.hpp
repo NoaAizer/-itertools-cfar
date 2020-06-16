@@ -24,7 +24,7 @@ namespace itertools{
                 iterator(typename cont::iterator s_it,typename cont::iterator e_it, typename cont2::iterator sF_it, typename cont2::iterator eF_it):
                     start_it(s_it),end_it(e_it), startF_it(sF_it),endF_it(eF_it){}
 
-                decltype(*(container.begin())) operator*() {
+                auto operator*() {
                     if(!(*startF_it))
                         ++(*this);
                     return *start_it;
@@ -41,7 +41,7 @@ namespace itertools{
                     ++(*this);
                     return tmp;
                 }
-
+                
                 bool operator==(const iterator& other) const {
                     return (start_it == other.start_it) && (startF_it == other.startF_it);
                 }

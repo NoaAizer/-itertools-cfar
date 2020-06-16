@@ -7,6 +7,7 @@ namespace itertools{
     class range{
         int _start, _end ;
         public:
+            typedef int	value_type;
             range(int s, int e): _start(s),_end(e){}
         class iterator{
             private:
@@ -17,6 +18,7 @@ namespace itertools{
             iterator(int c)
                 : curr(c) {
             }
+            
             int operator*() const {
                 return curr;
             }

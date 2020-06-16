@@ -23,7 +23,7 @@ namespace itertools{
                 iterator(typename cont::iterator s_it,typename cont::iterator e_it,condi co):
                     start_it(s_it),end_it(e_it), condition(co){}
 
-                decltype(*(container.begin())) operator*()  {
+                auto operator*()  {
                     if(condition(*start_it))
                         ++(*this);
                     return *start_it;

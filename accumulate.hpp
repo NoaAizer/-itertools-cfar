@@ -15,22 +15,22 @@ namespace itertools{
     template <typename cont, typename func = plus>
     class accumulate
     {
-    private:
         cont container;
         func function;
+        typedef typename cont::value_type value_type;
     public:
         accumulate(cont c , func f=plus()):container(c),function(f){}
         
         class iterator {
             typename cont::iterator start_it;
             typename cont::iterator end_it;
-            decltype(*(container.begin())) sum;
+            typename cont::value_type sum;
             func function;
             public:
                 iterator(typename cont::iterator s_it,typename cont::iterator e_it,func f):
                     start_it(s_it),end_it(e_it), sum(*s_it), function(f){}
 
-                decltype(*(container.begin())) operator*() const {
+                auto operator*() {
                     return sum;
                 }
 
